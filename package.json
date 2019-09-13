@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon",
     "dev": "tsc-watch --onSuccess 'node ./dist/src/server.js'",
-    "prod": "npx pm2 start pm2.yaml"
+    "prod": "pm2 start pm2.yaml"
   },
   "keywords": [],
   "author": "",
