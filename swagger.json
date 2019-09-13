@@ -1,0 +1,73 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API USFA",
+    "description": "Documentacion de la API, desarrollada en NODE con TypeScript, una implementacion del consumo de una api externa como ser Twitter.",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Local Dev, or from Digital Ocean, in usfa.codevs.tech"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the twitter app"
+    }
+  ],
+
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/profile": {
+      "post": {
+        "tags": ["Profile"],
+        "summary": "Get profile o profiles, its depends from body params",
+        "requestBody": {
+          "description": "String Array",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Usernames"
+              }
+            }
+          }
+        },
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Profile": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "Usernames": {
+      "type": "object",
+      "properties": {
+        "users": ["username1", "username2"]
+      }
+    }
+  }
+}
