@@ -1,3 +1,4 @@
+// Rename file usfa.constants.example.ts to usfa.constants.ts
 export const PORT = 9001;
 export const WELCOME_MESSAGE = 'Welcome to TwitterAPI REST by GD_DEV ^_^!';
 
