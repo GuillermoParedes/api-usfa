@@ -2,7 +2,15 @@
 
 Este es el codigo, para la presentacion en la USFA
 
-## Usage
+## Uso
+
+Para poder obtener el perfil, de los usuarios.
+
+```curl
+url : https://usfa.codevs.tech/users/profile
+body:  { users: [ "user1", "user2", .... "userN" ] } o { users: "user1" }
+method: POST
+```
 
 ## Contributing
 
