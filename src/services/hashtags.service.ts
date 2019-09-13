@@ -18,12 +18,13 @@ export class HashTagsService {
         usersRequest.push(ClientTwitter.get(API_SEARCH_HASH_TAG, params));
       });
 
-      await Promise.all(usersRequest).then((response: any) => {
-        // const users = response.map(function(value: any) {
-        //   return new Profile(value);
-        // });
-        return res.status(200).json({ status: true, data: response });
-      });
+      await Promise.all(usersRequest)
+        .then((response: any) => {
+          return res.status(200).json({ status: true, data: response });
+        })
+        .catch((error) => {
+          return res.status(404).send({ status: false, message: 'Not exists HashTags, am sorry XD' });
+        });
     } else if (typeof values === 'string') {
       const params = { q: values };
 
